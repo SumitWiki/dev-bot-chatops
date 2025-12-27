@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  chatops-bot:
+    build: .
+    container_name: chatops-devops-bot
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - NOTIFICATION_CHAT_ID=${NOTIFICATION_CHAT_ID}
+      - LOG_LEVEL=INFO
+    volumes:
+      # Mount Docker socket to control containers on host
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Persist logs
+      - ./logs:/app/logs
+    networks:
+      - chatops-network
+    # Run as root to access docker socket (or configure docker group)
+    user: root
+
+networks:
+  chatops-network:
+    driver: bridge

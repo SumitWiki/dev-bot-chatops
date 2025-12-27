@@ -1,0 +1,22 @@
+# ChatOps DevOps Bot - Python Dependencies
+
+# Telegram Bot
+python-telegram-bot==20.7
+
+# Docker SDK
+docker==7.0.0
+
+# Async support
+aiohttp==3.9.1
+
+# Environment variables
+python-dotenv==1.0.0
+
+# Logging
+colorlog==6.8.0
+
+# For scheduled tasks (health monitoring)
+APScheduler==3.10.4
+
+# HTTP requests
+requests==2.31.0
